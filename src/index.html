@@ -1,16 +1,3 @@
-import { Hono } from 'hono';
-
-import { hashGenerator } from './api/hash';
-
-const app = new Hono();
-
-app.post('/api/hash', hashGenerator);
-app.all('/api/hash', (c) => {
-	return c.json({ error: 'Method not allowed' }, 405);
-});
-
-app.get('/', (c) => {
-	const html = `
 <!DOCTYPE html>
 <html lang="ja-JP">
 	<head>
@@ -29,8 +16,4 @@ app.get('/', (c) => {
 		</p>
 	</body>
 </html>
-    `;
-	return c.html(html);
-});
-
-export default app;
+<!--index.tsに張り付ける-->
